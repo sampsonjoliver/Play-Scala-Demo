@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file        controllers.Assets.at(path="/public", file)
+
+# Foo REST API
+GET           /api/foo             controllers.Foo.list(page: Option[Int] ?= Some(1))
+GET           /api/foo/:id         controllers.Foo.show(id: Int)
+PUT           /api/foo/:id         controllers.Foo.update(id: Int)
+POST          /api/foo             controllers.Foo.add()
+DELETE        /api/foo/:id         controllers.Foo.delete(id: Int)
+
+# Testing things
+GET           /logging/1           controllers.Logging.loggingAction
+GET           /logging/2           controllers.Logging.loggingComposableAction
+
+GET           /auth/1              controllers.JsonTest.authAction
+
+GET           /async/1             controllers.Async.asyncAction
+GET           /async/2             controllers.Async.asyncAction2
+GET           /async/3             controllers.Async.asyncAction3
+GET           /async/4             controllers.Async.asyncAction4
+
+GET           /auth/2              controllers.JsonTest.asyncAuthAction
+GET           /auth/3              controllers.JsonTest.permittedAction
+
+GET           /misc/1              controllers.Recover.throwableAction
